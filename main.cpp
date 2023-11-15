@@ -13,7 +13,7 @@ int main()
 {
     Sort s;
     vector<int> v {9, 9, 8, 8, 5, 5, 3, 4, 2, 2, 2, 1, 1, 1, 2, 4};
-    s.QuickSort(v);
+    s.mergeSort(v);
 
     for (const auto &a : v) {
         cout << a;
