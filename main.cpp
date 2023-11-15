@@ -9,25 +9,16 @@
 
 using namespace std;
 
-class A {
-private:
-    void out() {
-        cout << "A->out()" << endl;
-    }
-};
-
-class B {
-public:
-    void getFuncRun(function<void(void)> func) {
-        func();
-    }
-};
-
 int main()
 {
-    A a;
-    B b;
-    b.getFuncRun(bind(&A::out, &a));
+    Sort s;
+    vector<int> v {9, 9, 8, 8, 5, 5, 3, 4, 2, 2, 2, 1, 1, 1, 2, 4};
+    s.QuickSort(v);
+
+    for (const auto &a : v) {
+        cout << a;
+    }
+    cout << endl;
 
     return 0;
 }
