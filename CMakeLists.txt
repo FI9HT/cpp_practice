@@ -8,6 +8,11 @@ add_compile_options(-g -Wall -O0)
 set(DIR_ALGORITHM_SRC_FILE
     ${PROJECT_SOURCE_DIR}/algorithm/sort.cpp
 )
+
+set(DIR_DATASTRUCTURE_TREE_SRC_FILE
+    ${PROJECT_SOURCE_DIR}/data_structure/tree/binary_tree.cpp
+)
+
 set(DIR_ROOT_SRC_FILE
     ${PROJECT_SOURCE_DIR}/main.cpp
 )
@@ -15,6 +20,6 @@ set(DIR_ROOT_SRC_FILE
 # include_directories()
 # link_directories()
 
-add_executable(MAIN ${DIR_ALGORITHM_SRC_FILE} ${DIR_ROOT_SRC_FILE})
+add_executable(MAIN ${DIR_ALGORITHM_SRC_FILE} ${DIR_DATASTRUCTURE_TREE_SRC_FILE} ${DIR_ROOT_SRC_FILE})
 
 # target_link_directories(MAIN ...)

@@ -20,7 +20,7 @@ void Sort::bubblingSort(std::vector<int> &vec)
 
 void Sort::mergeSort(std::vector<int> &vec)
 {
-    mergeSortReal(vec, 0, vec.size() - 1);
+    mergeSort(vec, 0, vec.size() - 1);
 }
 
 void Sort::partionForQuickSort(std::vector<int> &vec, int begin, int end)
@@ -41,59 +41,39 @@ void Sort::partionForQuickSort(std::vector<int> &vec, int begin, int end)
     partionForQuickSort(vec, l + 1, end);
 }
 
-void Sort::mergeSortReal(std::vector<int> &vec, int begin, int end)
+void Sort::mergeSort(std::vector<int> &vec, int begin, int end)
 {
     if (begin >= end) return;
     int mid = (begin + end) / 2;
-    mergeSortReal(vec, begin, mid);
-    mergeSortReal(vec, mid + 1, end);
-    std::vector<int> v1(vec.begin()+begin, vec.begin()+mid+1);
-    std::vector<int> v2(vec.begin()+mid+1, vec.begin()+1+end);
-    auto tmpVec = mergeForMergeSort(v1, v2);
+    mergeSort(vec, begin, mid);
+    mergeSort(vec, mid + 1, end);
+    
+    auto tmpVec = std::move(mergeForMergeSort(vec, begin, mid, end));
+
     for (int i = 0; i < tmpVec.size(); i++) {
         vec[begin+i] = tmpVec[i];
     }
-    for (auto a : vec) {
-        std::cout << a << " ";
-    }
-    std::cout << std::endl;
 }
 
-std::vector<int> Sort::mergeForMergeSort(std::vector<int> &v1, std::vector<int> &v2)
+std::vector<int> Sort::mergeForMergeSort(std::vector<int> &vec, int begin, int mid, int end)
 {
-    std::cout << std::endl;
     std::vector<int> result;
-    int i = 0, j = 0;
-    while (i < v1.size() && j < v2.size()) {
-        if (v1[i] < v2[j]) {
-            result.push_back(v1[i++]);
+    
+    int i = begin, j = mid+1;
+    while (i <= mid && j <= end) {
+        if (vec[i] < vec[j]) {
+            result.push_back(vec[i++]);
         } else {
-            result.push_back(v1[j++]);
+            result.push_back(vec[j++]);
         }
     }
-    if (i < v1.size()) {
-        result.insert(result.end(), v1.begin()+i, v1.end());
+
+    if (i <= mid) {
+        result.insert(result.end(), vec.begin()+i, vec.begin()+mid+1);
     } else {
-        result.insert(result.end(), v2.begin()+j, v2.end());
+        result.insert(result.end(), vec.begin()+j, vec.begin()+end+1);
     }
 
-    std::cout << "v1: ";
-    for (auto a : v1) {
-        std::cout << a << " ";
-    }
-    std::cout << std::endl;
-
-    std::cout << "v2: ";
-    for (auto a : v2) {
-        std::cout << a << " ";
-    }
-    std::cout << std::endl;
-
-    std::cout << "v3: ";
-    for (auto a : result) {
-        std::cout << a << " ";
-    }
-    std::cout << std::endl;
     return result;
 }
 

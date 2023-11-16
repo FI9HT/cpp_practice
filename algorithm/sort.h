@@ -12,8 +12,8 @@ public:
     void mergeSort(std::vector<int> &vec);
 private:
     void partionForQuickSort(std::vector<int> &vec, int begin, int end);
-    void mergeSortReal(std::vector<int> &vec, int begin, int end);
-    std::vector<int> mergeForMergeSort(std::vector<int> &v1, std::vector<int> &v2);
+    void mergeSort(std::vector<int> &vec, int begin, int end);
+    std::vector<int> mergeForMergeSort(std::vector<int> &vec, int begin, int mid, int end);
     void swap(int *a, int *b);
 };
 
