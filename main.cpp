@@ -14,11 +14,13 @@ using namespace std;
 
 int main()
 {
-    TreeNode<int> *node = BinaryTree<int>::createSimpleTree();
-    BinaryTree<int> *bt = new BinaryTree<int>();
-    bt->preOrderTraversalIteration(node);
-    bt->midOrderTraversalIteration(node);
-    bt->postOrderTraversalIteration(node);
+    // TreeNode<int> *node = BinaryTree<int>::createSimpleTree();
+    // BinaryTree<int> *bt = new BinaryTree<int>();
+    // bt->preOrderTraversalIteration(node);
+    // bt->midOrderTraversalIteration(node);
+    // bt->postOrderTraversalIteration(node);
     
+    cout << "asd" << endl;
+
     return 0;
 }

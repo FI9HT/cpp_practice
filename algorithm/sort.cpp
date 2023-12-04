@@ -48,7 +48,7 @@ void Sort::mergeSort(std::vector<int> &vec, int begin, int end)
     mergeSort(vec, begin, mid);
     mergeSort(vec, mid + 1, end);
     
-    auto tmpVec = std::move(mergeForMergeSort(vec, begin, mid, end));
+    std::vector<int> tmpVec = mergeForMergeSort(vec, begin, mid, end);
 
     for (int i = 0; i < tmpVec.size(); i++) {
         vec[begin+i] = tmpVec[i];
