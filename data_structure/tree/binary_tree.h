@@ -100,7 +100,7 @@ public:
             node = vec.back()->left;
             vec.pop_back();
         }
-        for (typename std::vector<T>::iterator it = reverseResultVec.rbegin(); it != reverseResultVec.rend(); it++) {
+        for (auto it = reverseResultVec.rbegin(); it != reverseResultVec.rend(); it++) {
             std::cout << *it << " ";
         }
         std::cout << std::endl;
