@@ -4,9 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <functional>
+#include <memory>
 
 #include "algorithm/sort.h"
 #include "data_structure/tree/binary_tree.h"
+#include "linux/SharedPtr.h"
 
 using namespace std;
 
@@ -14,29 +16,46 @@ using namespace std;
 
 class C1 {
 public:
-    int c1Num_;
-};
-class C2 {
-public:
-    C2() {}
-    C2(C2 *c2) : c2Num_(c2->c2Num_), c2NumM_(c2->c2NumM_) { 
-        cout << "C2 copy" << endl;
+    C1() { 
+        cout << "c1 cnst" << endl; 
     }
-    int c2Num_;
-    int c2NumM_;
+    ~C1() {
+        cout << "c1 dcnst" << endl;
+    }
+    void hello() {
+        cout << "c1 hello" << endl;
+    }
+    int c1Num_;
 };
 
 int main()
 {
-    TreeNode<int> *node = BinaryTree<int>::createSimpleTree();
-    BinaryTree<int> *bt = new BinaryTree<int>();
-    bt->preOrderTraversalIteration(node);
-    bt->midOrderTraversalIteration(node);
-    bt->postOrderTraversalIteration(node);
+    // TreeNode<int> *node = BinaryTree<int>::createSimpleTree();
+    // BinaryTree<int> *bt = new BinaryTree<int>();
+    // bt->preOrderTraversalIteration(node);
+    // bt->midOrderTraversalIteration(node);
+    // bt->postOrderTraversalIteration(node);
     
-    C1 *c1 = new C1();
-    C2 c2 = static_cast<C2*>(c1);
+    SharedPtr<C1> p1;
 
+    SharedPtr<C1> p2 = move(p1);
+    p2 = p1;
+    p2->hello();
+    p1->hello();
+
+    
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
