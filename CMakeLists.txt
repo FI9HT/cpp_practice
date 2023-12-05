@@ -13,6 +13,10 @@ set(DATASTRUCTURE_TREE_SRC
     ${PROJECT_SOURCE_DIR}/data_structure/tree/binary_tree.cpp
 )
 
+set(LINUX_SRC
+    ${PROJECT_SOURCE_DIR}/linux/byte_alignment.cpp
+)
+
 set(ROOT_SRC
     ${PROJECT_SOURCE_DIR}/main.cpp
 )
@@ -21,5 +25,6 @@ set(ROOT_SRC
 # link_directories()
 
 add_executable(test ${ALGORITHM_SRC} ${DATASTRUCTURE_TREE_SRC} ${ROOT_SRC})
+add_executable(align_test ${LINUX_SRC})
 
 # target_link_directories(MAIN ...)

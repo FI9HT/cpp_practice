@@ -9,7 +9,7 @@ void Sort::quickSort(std::vector<int> &vec)
 
 void Sort::bubblingSort(std::vector<int> &vec)
 {
-    for (int i = 0; i < vec.size() - 1; i++) {
+    for (auto i = 0; i < vec.size() - 1; i++) {
         for (int j = vec.size() - 1; j > i; j--) {
             if (vec[j] < vec[j-1]) {
                 swap(&vec[j], &vec[j-1]);
@@ -50,7 +50,7 @@ void Sort::mergeSort(std::vector<int> &vec, int begin, int end)
     
     std::vector<int> tmpVec = mergeForMergeSort(vec, begin, mid, end);
 
-    for (int i = 0; i < tmpVec.size(); i++) {
+    for (auto i = 0; i < tmpVec.size(); i++) {
         vec[begin+i] = tmpVec[i];
     }
 }
