@@ -10,8 +10,8 @@ struct TreeNode
     T data;
     TreeNode *left;
     TreeNode *right;
-    TreeNode() : left(NULL), right(NULL) {}
-    TreeNode(T data) : data(data), left(NULL), right(NULL) {}
+    TreeNode() : left(nullptr), right(nullptr) {}
+    TreeNode(T data) : data(data), left(nullptr), right(nullptr) {}
     TreeNode(T data, TreeNode *left, TreeNode *right) : data(data), left(left), right(right) {}
 };
 
@@ -100,7 +100,7 @@ public:
             node = vec.back()->left;
             vec.pop_back();
         }
-        for (typename std::vector<T>::iterator it = reverseResultVec.rbegin(); it != reverseResultVec.rend(); it++) {
+        for (auto it = reverseResultVec.rbegin(); it != reverseResultVec.rend(); it++) {
             std::cout << *it << " ";
         }
         std::cout << std::endl;

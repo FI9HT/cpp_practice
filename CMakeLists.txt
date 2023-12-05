@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
-project(PRACTICE)
+project(CPP_PRACTICE)
 
-set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD 11)
 add_compile_options(-g -Wall -O0)
 
 set(ALGORITHM_SRC
